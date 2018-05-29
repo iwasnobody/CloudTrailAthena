@@ -1,0 +1,6 @@
+SELECT
+eventtime,eventname,eventsource,useridentity.username
+FROM cloudtrail_logs_bnbcloudtrail
+WHERE useridentity.type='IAMUser' and eventtime like '2018-05-29%' and awsregion = 'us-east-1' or awsregion = 'ap-northeast-1'
+order by eventtime desc
+LIMIT 100
